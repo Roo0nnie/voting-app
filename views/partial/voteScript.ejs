@@ -1,0 +1,20 @@
+<script type="text/javascript">
+
+    const show = () => {
+        document.getElementById('show').style.display = 'block';
+        document.getElementById('hide').style.display = 'none';
+    }
+
+    var socket= io.connect($("#span_url").html());
+
+    $("#btn_lp").click(function(){
+        socket.emit('vote_lp', '1');
+        socket.emit('vote_pc', '0');
+        alert("vote done for Computer.");
+    });
+    $("#btn_pc").click(function(){
+        socket.emit('vote_lp', '0');
+        socket.emit('vote_pc', '1');
+        alert("vote done for Laptop.");
+    });
+</script>
